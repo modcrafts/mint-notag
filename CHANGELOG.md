@@ -4,6 +4,11 @@
 
 ## [Unreleased] - ReleaseDate
 
+## [0.2.10-CN] - 2024-8-28
+
+- Chinese font support
+- Removed `[MODDED]` tag
+
 ## [0.2.10] - 2023-08-18
 
 - Many small improvements to the GUI
