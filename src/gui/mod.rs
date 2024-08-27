@@ -54,7 +54,7 @@ pub fn gui(args: Option<Vec<String>>) -> Result<()> {
     eframe::run_native(
         &format!("DRG Mod Integration {}", env!("CARGO_PKG_VERSION")),
         options,
-        Box::new(|_cc| Box::new(App::new(args).unwrap())),
+        Box::new(|cc| Box::new(App::new(cc, args).unwrap())),
     )
     .map_err(|e| anyhow!("{e}"))?;
     Ok(())
@@ -112,7 +112,9 @@ enum LastActionStatus {
 }
 
 impl App {
-    fn new(args: Option<Vec<String>>) -> Result<Self> {
+    fn new(cc: &eframe::CreationContext, args: Option<Vec<String>>) -> Result<Self> {
+        Self::setup_custom_fonts(&cc.egui_ctx); // Setup Fonts
+
         let (tx, rx) = mpsc::channel(10);
         let state = State::init()?;
         info!("config dir = {}", state.project_dirs.config_dir().display());
@@ -146,6 +148,29 @@ impl App {
             lint_options: LintOptions::default(),
             cache: Default::default(),
         })
+    }
+
+    fn setup_custom_fonts(ctx: &egui::Context) {
+        let mut fonts = egui::FontDefinitions::default();
+
+        fonts.font_data.insert(
+            "my_font".to_owned(),
+            egui::FontData::from_static(include_bytes!("../../assets/SourceHanSansCN-Regular.otf")),
+        );
+
+        fonts
+            .families
+            .entry(egui::FontFamily::Proportional)
+            .or_default()
+            .insert(0, "my_font".to_owned());
+
+        fonts
+            .families
+            .entry(egui::FontFamily::Monospace)
+            .or_default()
+            .insert(0, "my_font".to_owned());
+
+        ctx.set_fonts(fonts);
     }
 
     fn ui_profile(&mut self, ui: &mut Ui, profile: &str) {
