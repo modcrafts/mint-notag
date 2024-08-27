@@ -308,9 +308,9 @@ impl CheckUpdates {
 
         async fn req() -> Result<GitHubRelease> {
             Ok(reqwest::Client::builder()
-                .user_agent("trumank/drg-mod-integration")
+                .user_agent("modcrafts/mint-notag")
                 .build()?
-                .get("https://api.github.com/repos/trumank/drg-mod-integration/releases/latest")
+                .get("https://api.github.com/repos/modcrafts/mint-notag/releases/latest")
                 .send()
                 .await?
                 .json::<GitHubRelease>()
