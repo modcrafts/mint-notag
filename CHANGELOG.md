@@ -4,6 +4,10 @@
 
 ## [Unreleased] - ReleaseDate
 
+## [0.2.12] - 2024-8-28
+
+- The server mod list is no longer synchronized to the client
+
 ## [0.2.11] - 2024-8-28
 
 - Updated Repo update check Url
@@ -33,7 +37,8 @@
 - Fix including same asset paths with different casings causing Unreal Engine to load neither ([#29](https://github.com/trumank/drg-mod-integration/issues/29))
 
 <!-- next-url -->
-[Unreleased]: https://github.com/modcrafts/mint-notag/compare/v0.2.11...HEAD
+[Unreleased]: https://github.com/modcrafts/mint-notag/compare/v0.2.12...HEAD
+[0.2.12]: https://github.com/modcrafts/mint-notag/compare/v0.2.11...v0.2.12
 [0.2.11]: https://github.com/modcrafts/mint-notag/compare/v0.2.10-CN...v0.2.11
 [0.2.10]: https://github.com/trumank/drg-mod-integration/compare/v0.2.9...v0.2.10
 [0.2.9]: https://github.com/trumank/drg-mod-integration/compare/v0.2.8...v0.2.9
