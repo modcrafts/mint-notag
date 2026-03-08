@@ -116,10 +116,15 @@ unsafe fn patch() -> Result<()> {
     let patterns = [
         (Sig::GetServerName, "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 56 41 57 48 83 EC 30 45 33 FF 4C 8B F2 48 8B D9 44 89 7C 24 50 41 8B FF"),
         (Sig::Disable, "4C 8B B4 24 48 01 00 00 0F 84"),
+        (Sig::Disable, "4C 8B B4 24 D8 01 00 00 0F 84"),
         (Sig::SaveGameToSlot, "48 89 5c 24 08 48 89 74 24 10 57 48 83 ec 40 48 8b da 33 f6 48 8d 54 24 30 48 89 74 24 30 48 89 74 24 38 41 8b f8"),
         (Sig::LoadGameFromMemory, "40 55 48 8d ac 24 00 ff ff ff 48 81 ec 00 02 00 00 83 79 08 00"),
         (Sig::LoadGameFromSlot, "48 8b c4 55 57 48 8d a8 d8 fe ff ff 48 81 ec 18 02 00 00"),
-    ].iter().map(|(name, pattern)| Ok((name, patternsleuth_scanner::Pattern::new(pattern)?))).collect::<Result<Vec<_>>>()?;
+    ]
+    .iter()
+    .map(|(name, pattern)| Ok((name, patternsleuth_scanner::Pattern::new(pattern)?)))
+    .collect::<Result<Vec<_>>>()?;
+
     let pattern_refs = patterns
         .iter()
         .map(|(name, pattern)| (name, pattern))
