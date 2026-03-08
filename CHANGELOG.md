@@ -44,7 +44,7 @@
 
 <!-- next-url -->
 [Unreleased]: https://github.com/modcrafts/mint-notag/compare/v0.2.13...HEAD
-[0.2.12]: https://github.com/modcrafts/mint-notag/compare/v0.2.12...v0.2.13
+[0.2.13]: https://github.com/modcrafts/mint-notag/compare/v0.2.12...v0.2.13
 [0.2.12]: https://github.com/modcrafts/mint-notag/compare/v0.2.11...v0.2.12
 [0.2.11]: https://github.com/modcrafts/mint-notag/compare/v0.2.10-CN...v0.2.11
 [0.2.10]: https://github.com/trumank/drg-mod-integration/compare/v0.2.9...v0.2.10
