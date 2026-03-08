@@ -4,6 +4,8 @@
 
 ## [Unreleased] - ReleaseDate
 
+- Fix disable modding Patterns
+
 ## [0.2.13] - 2026-03-08
 
 - Fix mod.io regex to accept new format
